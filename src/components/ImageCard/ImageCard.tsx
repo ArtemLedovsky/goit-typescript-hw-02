@@ -1,6 +1,12 @@
+import React from "react";
 import s from "./ImageCard.module.css";
 
-const ImageCard = ({ src, alt }) => {
+interface ImageCardProps {
+  src: string;
+  alt: string;
+}
+
+const ImageCard: React.FC<ImageCardProps> = ({ src, alt }) => {
   return (
     <div className={s.wrapper}>
       <img className={s.image} src={src} alt={alt} />

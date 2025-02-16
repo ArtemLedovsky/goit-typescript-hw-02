@@ -2,12 +2,17 @@ import { Field, Form, Formik } from "formik";
 import toast from "react-hot-toast";
 import s from "./SearchBar.module.css";
 import { BsSearch } from "react-icons/bs";
+import React from "react";
 
-const SearchBar = ({ onSubmit }) => {
+interface SearchBarProps {
+  onSubmit: (query: string) => void;
+}
+
+const SearchBar: React.FC<SearchBarProps> = ({ onSubmit }) => {
   const initialValues = {
     query: "",
   };
-  const handleSubmit = (values, options) => {
+  const handleSubmit = (values: any, options: any): any => {
     if (!values.query) {
       return toast.error("Please enter your request in the search field!");
     }

@@ -1,5 +1,6 @@
 import ReactModal from "react-modal";
 import s from "./ImageModal.module.css";
+import React from "react";
 const styles = {
   overlay: {
     backgroundColor: "rgba(0, 0, 0, 0.85)",
@@ -18,7 +19,17 @@ const styles = {
   },
 };
 
-const ImageModal = ({ handleCloseModal, modalIsOpen, imageInsideModal }) => {
+interface ImageModalProps {
+  handleCloseModal: () => void;
+  modalIsOpen: boolean;
+  imageInsideModal: string;
+}
+
+const ImageModal: React.FC<ImageModalProps> = ({
+  handleCloseModal,
+  modalIsOpen,
+  imageInsideModal,
+}) => {
   return (
     <div>
       <ReactModal
